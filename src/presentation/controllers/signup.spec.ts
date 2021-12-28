@@ -25,11 +25,6 @@ const makeEmailValidatorWithError = (): EmailValidator => {
 }
 
 const makeSut = (): SutTypes => {
-    class EmailValidatorStub implements EmailValidator {
-        isValid(email: string): boolean {
-            return true
-        }
-    }
     const emailValidatorStub = makeEmailValidator()
     const sut = new SignUpController(emailValidatorStub)
     return {
