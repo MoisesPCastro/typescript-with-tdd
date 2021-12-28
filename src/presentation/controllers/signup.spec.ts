@@ -1,7 +1,5 @@
-import { ServerError } from './../protocols/errors/server-error';
-import { EmailValidator } from '../protocols/email-validator';
-import { InvalidParamError } from './../protocols/errors/invalid-param-error';
-import { MissingParamError } from './../protocols/errors/missing-param-error';
+import { EmailValidator } from '../protocols';
+import { MissingParamError, InvalidParamError , ServerError} from './../protocols/errors';
 import { SignUpController } from './signup';
 
 interface SutTypes {
