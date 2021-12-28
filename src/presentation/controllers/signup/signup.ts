@@ -1,5 +1,5 @@
 import { InvalidParamError, MissingParamError } from '../../errors';
-import { badRequest, serverError} from '../../helpers/http-helper';
+import { badRequest, serverError, ok} from '../../helpers/http-helper';
 
 import { HttpRequest, HttpResponse, EmailValidator, Controller, AddAccount } from './signup-protocols';
 
@@ -12,7 +12,7 @@ private readonly addAccount: AddAccount
         this.emailValidator = emailValidator
         this.addAccount = addAccount
     }
-    handle(httpRequest: HttpRequest): HttpResponse {
+    async handle(httpRequest: HttpRequest): Promise <HttpResponse> {
        
         try {
             const requiredFilds = ['name', 'email', 'password', 'passwordConfirmation']
@@ -31,16 +31,13 @@ private readonly addAccount: AddAccount
                 return badRequest(new InvalidParamError('email'))
             }
 
-            const account = this.addAccount.add({
+            const account = await this.addAccount.add({
                 name,
                 email,
                 password
             })
 
-            return {
-                statusCode: 200,
-                body: account
-            } 
+            return ok(account)
             
         } catch (error) {
             return serverError()
