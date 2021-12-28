@@ -54,7 +54,7 @@ describe('SignUp Contoller', () => {
 
     })
 
-    test('Should return 400 if no email is provided', () => {
+    test('Should return 400 if no password is provided', () => {
         const {sut} = makeSut()
         const httpRequest = {
             body: {
@@ -69,7 +69,7 @@ describe('SignUp Contoller', () => {
 
     })
 
-    test('Should return 400 if no email is provided', () => {
+    test('Should return 400 if no passwordConfirmation is provided', () => {
         const {sut} = makeSut()
         const httpRequest = {
             body: {
