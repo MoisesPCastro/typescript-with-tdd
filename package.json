@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "sucrase-node src/man/server.ts",
+    "start": "sucrase-node src/main/server.ts",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
     "test:unit": "npm test -- --watch -c jest-unit-config.js",
     "test:integration": "npm test -- --watch -c jest-integration-config.js",
@@ -15,6 +15,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  
   "devDependencies": {
     "@shelf/jest-mongodb": "^2.2.0",
     "@types/bcrypt": "^5.0.0",
